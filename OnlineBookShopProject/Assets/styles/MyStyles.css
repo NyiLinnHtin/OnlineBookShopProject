@@ -1,0 +1,20 @@
+﻿body {
+}
+
+.my-button-login {
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.my-button-login:hover {
+    border: 2px solid purple; /* Replace 'purple' with your chosen color */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Add a green glow */
+}
+
+.searchGrid th {
+    background-color: #e8f0fe;
+    font-weight: bold;
+}

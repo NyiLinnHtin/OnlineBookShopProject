@@ -1,0 +1,192 @@
+﻿* {
+    font-family: Poppins;
+}
+
+.menu {
+    color: white;
+    background-color: #30D5C0;
+    height: 100vh;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+    .menu .logout {
+        margin-top: auto; /* Pushes the logout button to the bottom */
+    }
+
+label {
+    color: white;
+}
+
+.clickable-block {
+    display: inline-block;
+    cursor: pointer;
+    width: 100%;
+}
+
+    .clickable-block a {
+        /* Style the link within the block */
+        text-decoration: none; /* Removes underline from the link */
+        color: inherit; /* Inherits the color from the parent */
+        border-radius: 5px;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    .clickable-block:hover {
+        background-color: teal;
+    }
+
+.searchGrid {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    text-align: left;
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+    .searchGrid a {
+        text-decoration: none; /* Remove underline */
+        padding: 0; /* Remove padding */
+        margin: 0; /* Remove margin */
+        border: none; /* Remove any borders */
+        display: inline-block; /* Ensure it's inline-block for better control */
+        vertical-align: middle; /* Align icons in the middle */
+    }
+
+    .searchGrid i {
+        margin: 0; /* Remove margin from icons */
+        padding: 0; /* Remove padding from icons */
+    }
+
+    .searchGrid th {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 15px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .searchGrid tr:not(.gridPager) td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .searchGrid tr:not(.gridPager):nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .searchGrid th, .searchGrid td {
+        text-align: left;
+    }
+
+        .searchGrid th:first-child,
+        .searchGrid td:first-child {
+            border-top-left-radius: 8px;
+            width: 120px;
+        }
+
+        .searchGrid th:last-child,
+        .searchGrid td:last-child {
+            border-top-right-radius: 8px;
+        }
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .searchGrid {
+        font-size: 14px;
+    }
+
+        .searchGrid th, .searchGrid td {
+            padding: 10px 12px;
+        }
+}
+
+/* Pagination bar (gridPager) styling */
+.gridPager {
+    text-align: center;
+    padding: 5px 0; /* Minimal padding */
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa; /* Light blue background */
+    height: 50px; /* Set fixed height for pagination bar */
+}
+
+    .gridPager td {
+        height: 40px;
+    }
+
+    /* General link styling */
+    .gridPager a, .gridPager span {
+        margin: 0 5px;
+        padding: 3px 5px;
+        color: #333;
+        text-decoration: none;
+        background-color: transparent;
+        border: none; /* No border by default */
+        font-weight: normal;
+    }
+
+        /* Hover effect for pagination links */
+        .gridPager a:hover, .gridPager a:active {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+    /* Selected page styling with border */
+    .gridPager .SelectedPage {
+        font-weight: bold;
+        color: #333;
+        text-decoration: none;
+        border: 2px solid #0056b3; /* Add a border for the selected page */
+        padding: 3px 5px; /* Match padding with other links */
+        border-radius: 3px; /* Optional: add slight rounding to the corners */
+    }
+
+    /* Disabled link styling */
+    .gridPager .Disabled {
+        color: #4CAF50;
+        cursor: not-allowed;
+    }
+.border-error {
+    border-color: red; 
+    border-width: 1.5px;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 450px; 
+    border-radius: 5px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow
+}
+
+    .modal-content h4 {
+        margin-bottom: 15px; 
+    }
+
+    .modal-content .btn {
+        width: 80px; 
+        margin-right: 10px;
+    }
+
+
+

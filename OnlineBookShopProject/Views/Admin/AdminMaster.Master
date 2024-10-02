@@ -1,0 +1,53 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="OnlineBookShopProject.Views.Admin.AdminMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Assets/styles/AdminMasterStyle.css" rel="stylesheet" />
+    <link href="../../Content/all.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 menu">
+                <div style="height: 30px">
+                </div>
+                <div class="mb-3">
+                    <img src="../../../Assets/images/books-removebg-preview.png" width="40" height="40" />
+                    <a href="#">Book</a>
+                </div>
+                <div class="mb-3">
+                    <img src="../../../Assets/images/author-removebg-preview.png" width="40" height="40" />
+                    <a href="#">Author</a>
+                </div>
+                <div class="mb-3">
+                    <img src="../../../Assets/images/BookSeller-removebg-preview.png" width="40" height="40" />
+                    <a href="#">Seller</a>
+                </div>
+                <div class="mb-3">
+                    <img src="../../../Assets/images/category-removebg-preview.png" width="40" height="40" />
+                    <a href="#">Category</a>
+                </div>
+                <div class="mb-3">
+                    <img src="../../../Assets/images/LogOut-removebg-preview.png" width="40" height="40" />
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+
+            <div class="col-10">
+                <form id="form1" runat="server">
+                    <div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
