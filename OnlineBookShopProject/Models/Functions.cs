@@ -27,22 +27,43 @@ namespace OnlineBookShopProject.Models
         {
             dt = new DataTable();
             sda = new SqlDataAdapter(Query, Constr);
-            sda.Fill(dt);
+            try
+            {
+                sda.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("Error executing query: " + ex.Message);
+            }
+
             return dt;
         }
 
         public int SetData(string Query)
         {
-            int cnt = 0;
+            int affectedRows = 0;
             if(Con.State == ConnectionState.Closed)
             {
                 Con.Open();
             }
-            cmd.CommandText = Query;
-            cnt = cmd.ExecuteNonQuery();
-            Con.Close();
-            return cnt;
-        }
 
+            cmd.CommandText = Query;
+            affectedRows = cmd.ExecuteNonQuery();
+
+            try
+            {
+                affectedRows = cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                affectedRows = -1;
+                throw new Exception("Database operation failed: " + ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
+            return affectedRows;
+        }
     }
 }

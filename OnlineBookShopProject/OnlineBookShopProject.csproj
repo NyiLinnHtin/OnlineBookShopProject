@@ -131,7 +131,8 @@
     <Content Include="Scripts\fontawesome\v4-shims.js" />
     <Content Include="Scripts\fontawesome\v4-shims.min.js" />
     <Content Include="Views\Admin\Authors.aspx" />
-    <Content Include="Views\Admin\BooksDetails.aspx" />
+    <Content Include="Views\Admin\Book\BookDetails.aspx" />
+    <Content Include="Views\Admin\Book\BookLists.aspx" />
     <Content Include="Views\Admin\Categories\CategoryDetail.aspx" />
     <Content Include="Views\Admin\Categories\CategoryLists.aspx" />
     <Content Include="Views\Admin\Sellers.aspx" />
@@ -160,12 +161,19 @@
     <Compile Include="Views\Admin\Authors.aspx.designer.cs">
       <DependentUpon>Authors.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\BooksDetails.aspx.cs">
-      <DependentUpon>BooksDetails.aspx</DependentUpon>
+    <Compile Include="Views\Admin\Book\BookDetails.aspx.cs">
+      <DependentUpon>BookDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Admin\BooksDetails.aspx.designer.cs">
-      <DependentUpon>BooksDetails.aspx</DependentUpon>
+    <Compile Include="Views\Admin\Book\BookDetails.aspx.designer.cs">
+      <DependentUpon>BookDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Book\BookLists.aspx.cs">
+      <DependentUpon>BookLists.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Book\BookLists.aspx.designer.cs">
+      <DependentUpon>BookLists.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\Categories\CategoryDetail.aspx.cs">
       <DependentUpon>CategoryDetail.aspx</DependentUpon>

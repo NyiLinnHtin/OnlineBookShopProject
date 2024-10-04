@@ -78,7 +78,7 @@ namespace OnlineBookShopProject.Views.Admin
             }
             if (!string.IsNullOrEmpty(authorName))
             {
-                query += $" AND AuthorName LIKE '%' + {authorName} + '%'";
+                query += $" AND AuthorName LIKE '%' + '{authorName}' + '%'";
                 // Add parameter for AuthorName
             }
 
