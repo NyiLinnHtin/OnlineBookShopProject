@@ -17,8 +17,8 @@ namespace OnlineBookShopProject.Views.Admin.Book
             if (!IsPostBack)
             {
                 DisplayCategories();
+                ShowAllBooks();
             }
-            ShowAllBooks();
         }
 
         private void DisplayCategories()
@@ -76,6 +76,10 @@ namespace OnlineBookShopProject.Views.Admin.Book
 
         private void DisplayAuthors()
         {
+            lblAuthorSearchErr.Visible = false;
+            gvAuthors.DataSource = null;
+            gvAuthors.DataBind();
+
             string authorID = txtAuthorID.Text.Trim();
             string authorName = txtAuthorName.Text.Trim();
 
@@ -83,8 +87,16 @@ namespace OnlineBookShopProject.Views.Admin.Book
 
             if (!string.IsNullOrEmpty(authorID))
             {
-                query += $" AND AuthorId = {authorID}";
-                // Add parameter for AuthorID
+                if (int.TryParse(authorID, out int authorId))
+                {
+                    query += $" AND AuthorId = {authorId}";
+                }
+                else
+                {
+                    lblAuthorSearchErr.Visible = true;
+                    lblAuthorSearchErr.Text = "AuthorId must be a valid number.";
+                    return;
+                }
             }
             if (!string.IsNullOrEmpty(authorName))
             {
@@ -103,8 +115,6 @@ namespace OnlineBookShopProject.Views.Admin.Book
             else
             {
                 lblNoAuthor.Visible = true;
-                gvAuthors.DataSource = null;
-                gvAuthors.DataBind();
             }
         }
 
@@ -162,8 +172,23 @@ namespace OnlineBookShopProject.Views.Admin.Book
             query += whereClause;
 
             // Execute the query
-            gridBooks.DataSource = Con.GetData(query);
-            gridBooks.DataBind();
+            DataTable dt = Con.GetData(query);
+
+            // Check if the DataSource (DataTable) has any rows
+            if (dt == null || dt.Rows.Count == 0)
+            {
+                // Show the no data label
+                lblNoListDisplay.Visible = true;
+                gridBooks.DataSource = null;
+                gridBooks.DataBind();
+            }
+            else
+            {
+                // Hide the no data label
+                lblNoListDisplay.Visible = false;
+                gridBooks.DataSource = dt;
+                gridBooks.DataBind();
+            }
         }
 
         protected void gridBooks_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -182,38 +207,12 @@ namespace OnlineBookShopProject.Views.Admin.Book
             hfAuthorId.Value = "";
             txtAuthor.Text = "";
             DDLCategory.SelectedIndex = 0;
+            ShowAllBooks();
         }
 
         protected void btnGridSearch_Click(object sender, EventArgs e)
         {
             ShowAllBooks();
-            //string query = "SELECT * FROM Author WHERE 1=1";
-            //if (txtBookName.Value != ""){
-            //    query += $" AND BookName like % '{txtBookName.Value}'";
-            //}
-            //if (string.IsNullOrEmpty(hfAuthorId.Value))
-            //{
-            //    query += $" AND BookAuthor like = {hfAuthorId.Value}";
-            //}
-            //if (DDLCategory.SelectedIndex != 0)
-            //{
-            //    query += $" AND BookCategory = '{DDLCategory.SelectedIndex}'";
-            //}
-
-            //DataTable dt = Con.GetData(query);
-
-            //if (dt.Rows.Count > 0)
-            //{
-            //    lblNoAuthor.Visible = false;
-            //    gvAuthors.DataSource = dt;
-            //    gvAuthors.DataBind();
-            //}
-            //else
-            //{
-            //    lblNoAuthor.Visible = true;
-            //    gvAuthors.DataSource = null;
-            //    gvAuthors.DataBind();
-            //}
         }
     }
 }

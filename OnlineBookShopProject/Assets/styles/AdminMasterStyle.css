@@ -156,6 +156,19 @@ label {
     border-width: 1.5px;
 }
 
+.no-data-message {
+    display: block; /* Ensures the label takes up full width */
+    width: 100%;
+    padding: 15px;
+    background-color: #f8d7da; /* Light red background */
+    color: #721c24; /* Dark red text */
+    border: 1px solid #f5c6cb; /* Border matching the background */
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */

@@ -98,6 +98,9 @@
                 </Columns>
             </asp:GridView>
         </div>
+        <div>
+            <asp:Label ID="lblNoListDisplay" runat="server" CssClass="no-data-message" >There is no Corresponding Book to Display</asp:Label>
+        </div>
 
 
         <!-- Author Search Modal -->
@@ -110,6 +113,9 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+                    <div>
+                        <asp:Label ID="lblAuthorSearchErr" CssClass="text-danger" runat="server"></asp:Label>
+                    </div>
                     <div class="modal-body">
                         <label class="form-label text-dark">Author ID</label>
                         <asp:TextBox ID="txtAuthorID" runat="server" CssClass="form-control border-dark" placeholder="Enter author ID" autocomplete="off" />
@@ -117,10 +123,10 @@
                         <label class="form-label text-dark mt-2">Author Name</label>
                         <asp:TextBox ID="txtAuthorName" runat="server" CssClass="form-control border-dark" placeholder="Enter author name" autocomplete="off" />
 
-                        <asp:Button ID="Button1" runat="server" Text="Search" CssClass="btn btn-primary mt-2" OnClick="btnSearch_Click" />
+                        <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary mt-2" OnClick="btnSearch_Click" />
 
                         <div>
-                            <label id="lblNoAuthor" class="text-danger" runat="server">There is no Author to Display</label>
+                            <asp:Label ID="lblNoAuthor" runat="server" CssClass="no-data-message" >There is no Corresponding Author</asp:Label>
                         </div>
 
                         <div style="overflow: auto;">
