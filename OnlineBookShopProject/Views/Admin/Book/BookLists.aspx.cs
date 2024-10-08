@@ -138,8 +138,8 @@ namespace OnlineBookShopProject.Views.Admin.Book
                         COALESCE(a.AuthorName, 'Unknown') AS AuthorName,
                         b.BookCategory,
                         COALESCE(c.Category, 'Unknown') AS Category, 
-                        b.BookQty,
-                        b.BookPrice 
+                        FORMAT(b.BookQty, 'N0') AS BookQty,    -- No decimal places, comma-separated
+                        FORMAT(b.BookPrice, 'N2') AS BookPrice -- Two decimal places, comma-separated
                     FROM 
                         Book b
                     LEFT JOIN 
@@ -166,6 +166,18 @@ namespace OnlineBookShopProject.Views.Admin.Book
             if (DDLCategory.SelectedIndex != 0)
             {
                 whereClause += $" AND b.BookCategory = '{DDLCategory.SelectedValue}'";
+            }
+
+            // If Minimum Price is provided
+            if (!string.IsNullOrEmpty(txtPriceStart.Text))
+            {
+                whereClause += $" AND b.BookPrice >= {txtPriceStart.Text}";
+            }
+
+            // If Maximum Price is provided
+            if (!string.IsNullOrEmpty(txtPriceEnd.Text))
+            {
+                whereClause += $" AND b.BookPrice <= {txtPriceEnd.Text}";
             }
 
             // Append the where clause to the main query
@@ -207,12 +219,35 @@ namespace OnlineBookShopProject.Views.Admin.Book
             hfAuthorId.Value = "";
             txtAuthor.Text = "";
             DDLCategory.SelectedIndex = 0;
+            txtPriceStart.Text = "";
+            txtPriceEnd.Text = "";
+
+            lblDisplayError.Text = "";
+            lblDisplayError.Visible = false;
+
             ShowAllBooks();
         }
 
         protected void btnGridSearch_Click(object sender, EventArgs e)
         {
-            ShowAllBooks();
+            if (!checkSearchCondition())
+            {
+                ShowAllBooks();
+            }
+        }
+
+        private bool checkSearchCondition()
+        {
+            bool isError = false;
+            if(Int32.Parse(txtPriceStart.Text.Trim()) > Int32.Parse(txtPriceEnd.Text.Trim()))
+            {
+                lblDisplayError.Text = "Min Price must be lower than Max Price!!!";
+                lblDisplayError.Visible = true;
+                isError = true;
+                return isError;
+            }
+            lblDisplayError.Visible = false;
+            return isError;
         }
     }
 }

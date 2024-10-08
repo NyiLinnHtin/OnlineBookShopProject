@@ -6,36 +6,95 @@
 <head runat="server">
     <title></title>
     <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="../../../Scripts/bootstrap.bundle.min.js"></script>
     <link href="../../Assets/styles/AdminMasterStyle.css" rel="stylesheet" />
     <link href="../../Content/all.css" rel="stylesheet" />
+
+    <script>
+        function toggleSidebar() {
+            var sidebarContainer = document.getElementById("sidebarContainer");
+            var sidebar = document.getElementById("sidebar");
+            var sidebarIcons = document.getElementById("sidebar-icons");
+            var toggleIcon = document.getElementById("toggleIcon");
+
+            // Check if the sidebar is currently expanded
+            if (sidebarContainer.classList.contains("sidebar-expanded")) {
+                // Minimize the sidebar
+                sidebarContainer.classList.remove("sidebar-expanded");
+                sidebarContainer.classList.add("sidebar-collapsed");
+                sidebarIcons.style.display = "block"; // Show only icons
+                sidebar.classList.remove("show");
+                toggleIcon.classList.remove("fa-chevron-left");
+                toggleIcon.classList.add("fa-chevron-right"); // Change icon to right arrow
+            } else {
+                // Expand the sidebar
+                sidebarContainer.classList.remove("sidebar-collapsed");
+                sidebarContainer.classList.add("sidebar-expanded");
+                sidebarIcons.style.display = "none"; // Hide icons
+                sidebar.classList.add("show");
+                toggleIcon.classList.remove("fa-chevron-right");
+                toggleIcon.classList.add("fa-chevron-left"); // Change icon to left arrow
+            }
+        }
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2 menu">
+            <div id="sidebarContainer" class="col-2 sidebar-expanded menu">
+                <!-- Add ID for easy JavaScript targeting -->
                 <div style="height: 30px">
+                    <button id="toggleSidebar" type="button" style="width: 100%; background-color: transparent; border: none;" onclick="toggleSidebar()">
+                        <i class="fas fa-chevron-left" id="toggleIcon"></i>
+                        <!-- Initial icon -->
+                    </button>
                 </div>
-                <div class="mb-3">
-                    <img src="../../../Assets/images/books-removebg-preview.png" width="40" height="40" />
-                    <a href="#">Book</a>
+
+                <div style="height: 20px">
+                    <span style="height: 20px;"></span>
                 </div>
-                <div class="mb-3">
-                    <img src="../../../Assets/images/author-removebg-preview.png" width="40" height="40" />
-                    <a href="#">Author</a>
+
+                <div id="sidebar" class="collapse show">
+                    <div class="mb-3">
+                        <img src="../../../Assets/images/books-removebg-preview.png" width="40" height="40" />
+                        <span class="sidebar-text">Book</span>
+                    </div>
+                    <div class="mb-3">
+                        <img src="../../../Assets/images/author-removebg-preview.png" width="40" height="40" />
+                        <span class="sidebar-text">Author</span>
+                    </div>
+                    <div class="mb-3">
+                        <img src="../../../Assets/images/BookSeller-removebg-preview.png" width="40" height="40" />
+                        <span class="sidebar-text">Seller</span>
+                    </div>
+                    <div class="mb-3">
+                        <img src="../../../Assets/images/category-removebg-preview.png" width="40" height="40" />
+                        <span class="sidebar-text">Category</span>
+                    </div>
+                    <div class="mb-3">
+                        <img src="../../../Assets/images/LogOut-removebg-preview.png" width="40" height="40" />
+                        <span class="sidebar-text">Logout</span>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <img src="../../../Assets/images/BookSeller-removebg-preview.png" width="40" height="40" />
-                    <a href="#">Seller</a>
-                </div>
-                <div class="mb-3">
-                    <img src="../../../Assets/images/category-removebg-preview.png" width="40" height="40" />
-                    <a href="#">Category</a>
-                </div>
-                <div class="mb-3">
-                    <img src="../../../Assets/images/LogOut-removebg-preview.png" width="40" height="40" />
-                    <a href="#">Logout</a>
+
+                <div id="sidebar-icons" class="collapse" style="display: none;">
+                    <div class="mb-3">
+                        <img src="../../../Assets/images/books-removebg-preview.png" width="40" height="40" />
+                    </div>
+                    <div class="mb-3">
+                        <img src="../../../Assets/images/author-removebg-preview.png" width="40" height="40" />
+                    </div>
+                    <div class="mb-3">
+                        <img src="../../../Assets/images/BookSeller-removebg-preview.png" width="40" height="40" />
+                    </div>
+                    <div class="mb-3">
+                        <img src="../../../Assets/images/category-removebg-preview.png" width="40" height="40" />
+                    </div>
+                    <div class="mb-3">
+                        <img src="../../../Assets/images/LogOut-removebg-preview.png" width="40" height="40" />
+                    </div>
                 </div>
             </div>
 
@@ -49,5 +108,6 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>

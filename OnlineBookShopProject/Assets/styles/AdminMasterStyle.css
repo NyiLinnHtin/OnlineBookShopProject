@@ -201,5 +201,35 @@ label {
         margin-right: 10px;
     }
 
+.btn-block {
+    border: none; /* Remove border */
+    background: none; /* Remove background color */
+    padding: 0; /* Adjust padding as needed */
+    font-weight: bold; /* Make text bold */
+    color: inherit; /* Inherit color from parent */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+    .btn-block:hover {
+        text-decoration: underline; /* Optional: add underline on hover */
+    }
+
+/* Expanded sidebar (default) */
+.sidebar-expanded {
+    width: 200px;
+    transition: width 0.3s ease;
+}
+
+/* Collapsed sidebar (minimized) */
+.sidebar-collapsed {
+    width: 60px;
+    transition: width 0.3s ease;
+}
+
+    /* Hide text when collapsed */
+    .sidebar-collapsed .sidebar-text {
+        display: none;
+    }
+
 
 
