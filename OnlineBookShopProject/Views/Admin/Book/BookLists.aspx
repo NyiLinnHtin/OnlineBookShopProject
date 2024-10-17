@@ -99,7 +99,7 @@
 
             <div class="row mt-3 justify-content-start">
                 <div class="col">
-                    <asp:Button ID="btnAdd" Text="Add" runat="server" class="btn btn-success" Width="150px" />
+                    <asp:Button ID="btnAdd" Text="Add" runat="server" class="btn btn-success" Width="150px" OnClick="btnAdd_Click" />
                 </div>
             </div>
 
@@ -125,7 +125,7 @@
                         <asp:BoundField DataField="BookName" HeaderText="Book Name" />
                         <asp:BoundField DataField="AuthorName" HeaderText="Author" />
                         <asp:BoundField DataField="Category" HeaderText="Category" />
-                        <asp:BoundField DataField="BookQty" HeaderText="Quality" />
+                        <asp:BoundField DataField="BookQty" HeaderText="Quantity" />
                         <asp:BoundField DataField="BookPrice" HeaderText="Price" />
                     </Columns>
                 </asp:GridView>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineBookShopProject.Assets.Common;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -11,6 +12,9 @@ namespace OnlineBookShopProject.Views.Admin.Book
     public partial class BookLists : System.Web.UI.Page
     {
         Models.Functions Con;
+        int bookId;
+
+        string mode, encryptedMode, encryptedBookId;
         protected void Page_Load(object sender, EventArgs e)
         {
             Con = new Models.Functions();
@@ -211,6 +215,42 @@ namespace OnlineBookShopProject.Views.Admin.Book
 
         protected void gridBooks_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            if (e.CommandName == "EditBook")
+            {
+                bookId = Convert.ToInt32(e.CommandArgument);
+                mode = Common_Datas.Mode.Edit;
+
+                // Encrypt the parameters
+                encryptedMode = Common_Functions.Encrypt(mode);
+                encryptedBookId = Common_Functions.Encrypt(bookId.ToString());
+
+                // Redirect to the CategoryDetail.aspx page with encrypted parameters
+                Response.Redirect($"BookDetail.aspx?Mode={encryptedMode}&BookId={encryptedBookId}");
+            }
+            else if (e.CommandName == "DeleteBook")
+            {
+                bookId = Convert.ToInt32(e.CommandArgument);
+                mode = Common_Datas.Mode.Delete;
+
+                // Encrypt the parameters
+                encryptedMode = Common_Functions.Encrypt(mode);
+                encryptedBookId = Common_Functions.Encrypt(bookId.ToString());
+
+                // Redirect to the CategoryDetail.aspx page with encrypted parameters
+                Response.Redirect($"BookDetail.aspx?Mode={encryptedMode}&BookId={encryptedBookId}");
+            }
+            else if (e.CommandName == "ViewBook")
+            {
+                bookId = Convert.ToInt32(e.CommandArgument);
+                mode = Common_Datas.Mode.View;
+
+                // Encrypt the parameters
+                encryptedMode = Common_Functions.Encrypt(mode);
+                encryptedBookId = Common_Functions.Encrypt(bookId.ToString());
+
+                // Redirect to the CategoryDetail.aspx page with encrypted parameters
+                Response.Redirect($"BookDetail.aspx?Mode={encryptedMode}&BookId={encryptedBookId}");
+            }
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
@@ -248,6 +288,13 @@ namespace OnlineBookShopProject.Views.Admin.Book
             }
             lblDisplayError.Visible = false;
             return isError;
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            mode = Common_Datas.Mode.Add;
+            encryptedMode = Common_Functions.Encrypt(mode);
+            Response.Redirect($"BookDetail.aspx?Mode={encryptedMode}");
         }
     }
 }

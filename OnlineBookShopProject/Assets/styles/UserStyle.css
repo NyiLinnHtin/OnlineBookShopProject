@@ -1,0 +1,99 @@
+﻿.searchGrid {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    text-align: left;
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .searchGrid a {
+        text-decoration: none; /* Remove underline */
+        padding: 0; /* Remove padding */
+        margin: 0; /* Remove margin */
+        border: none; /* Remove any borders */
+        display: inline-block; /* Ensure it's inline-block for better control */
+        vertical-align: middle; /* Align icons in the middle */
+    }
+
+    .searchGrid i {
+        margin: 0; /* Remove margin from icons */
+        padding: 0; /* Remove padding from icons */
+    }
+
+    .searchGrid th {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 15px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .searchGrid tr:not(.gridPager) td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .searchGrid tr:not(.gridPager):nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .searchGrid th, .searchGrid td {
+        text-align: left;
+    }
+
+        .searchGrid th:first-child,
+        .searchGrid td:first-child {
+            border-top-left-radius: 8px;
+            width: 120px;
+        }
+
+        .searchGrid th:last-child,
+        .searchGrid td:last-child {
+            border-top-right-radius: 8px;
+        }
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .searchGrid {
+        font-size: 14px;
+    }
+
+        .searchGrid th, .searchGrid td {
+            padding: 10px 12px;
+        }
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 450px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+    .modal-content h4 {
+        margin-bottom: 15px;
+    }
+
+    .modal-content .btn {
+        width: 80px;
+        margin-right: 10px;
+    }

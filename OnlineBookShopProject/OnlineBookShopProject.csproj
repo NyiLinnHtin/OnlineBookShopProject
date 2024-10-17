@@ -76,9 +76,12 @@
     <Content Include="Assets\images\books-removebg-preview.png" />
     <Content Include="Assets\images\BookSeller-removebg-preview.png" />
     <Content Include="Assets\images\category-removebg-preview.png" />
+    <Content Include="Assets\images\CheckOut.png" />
     <Content Include="Assets\images\LogOut-removebg-preview.png" />
+    <Content Include="Assets\images\UnknownBook.png" />
     <Content Include="Assets\styles\AdminMasterStyle.css" />
     <Content Include="Assets\styles\MyStyles.css" />
+    <Content Include="Assets\styles\UserStyle.css" />
     <Content Include="Content\all.css" />
     <Content Include="Content\all.min.css" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -130,13 +133,13 @@
     <Content Include="Scripts\fontawesome\solid.min.js" />
     <Content Include="Scripts\fontawesome\v4-shims.js" />
     <Content Include="Scripts\fontawesome\v4-shims.min.js" />
-    <Content Include="Views\Admin\Authors.aspx" />
-    <Content Include="Views\Admin\Book\BookDetails.aspx" />
+    <Content Include="Views\Admin\Authors\AuthorLists.aspx" />
+    <Content Include="Views\Admin\Book\BookDetail.aspx" />
     <Content Include="Views\Admin\Book\BookLists.aspx" />
     <Content Include="Views\Admin\Categories\CategoryDetail.aspx" />
     <Content Include="Views\Admin\Categories\CategoryLists.aspx" />
-    <Content Include="Views\Admin\Sellers.aspx" />
     <Content Include="Views\Login.aspx" />
+    <Content Include="Views\User\Book\BookList_User.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -154,19 +157,19 @@
     <Compile Include="Views\Admin\AdminMaster.Master.designer.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\Authors.aspx.cs">
-      <DependentUpon>Authors.aspx</DependentUpon>
+    <Compile Include="Views\Admin\Authors\AuthorLists.aspx.cs">
+      <DependentUpon>AuthorLists.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Admin\Authors.aspx.designer.cs">
-      <DependentUpon>Authors.aspx</DependentUpon>
+    <Compile Include="Views\Admin\Authors\AuthorLists.aspx.designer.cs">
+      <DependentUpon>AuthorLists.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\Book\BookDetails.aspx.cs">
-      <DependentUpon>BookDetails.aspx</DependentUpon>
+    <Compile Include="Views\Admin\Book\BookDetail.aspx.cs">
+      <DependentUpon>BookDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Admin\Book\BookDetails.aspx.designer.cs">
-      <DependentUpon>BookDetails.aspx</DependentUpon>
+    <Compile Include="Views\Admin\Book\BookDetail.aspx.designer.cs">
+      <DependentUpon>BookDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\Book\BookLists.aspx.cs">
       <DependentUpon>BookLists.aspx</DependentUpon>
@@ -189,19 +192,26 @@
     <Compile Include="Views\Admin\Categories\CategoryLists.aspx.designer.cs">
       <DependentUpon>CategoryLists.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Admin\Sellers.aspx.cs">
-      <DependentUpon>Sellers.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Admin\Sellers.aspx.designer.cs">
-      <DependentUpon>Sellers.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\Book\BookList_User.aspx.cs">
+      <DependentUpon>BookList_User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\User\Book\BookList_User.aspx.designer.cs">
+      <DependentUpon>BookList_User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\UserMaster.Master.cs">
+      <DependentUpon>UserMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\User\UserMaster.Master.designer.cs">
+      <DependentUpon>UserMaster.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -229,6 +239,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Views\Admin\AdminMaster.Master" />
+    <Content Include="Views\User\UserMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -253,7 +264,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Seller\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

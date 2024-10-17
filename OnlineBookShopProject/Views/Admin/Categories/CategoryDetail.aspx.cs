@@ -167,7 +167,6 @@ namespace OnlineBookShopProject.Views.Admin.Categories
                 txtCategory.CssClass = "form-control border-black";
                 lblError.Visible = false;
             }
-
         }
 
         private void UpdateData()

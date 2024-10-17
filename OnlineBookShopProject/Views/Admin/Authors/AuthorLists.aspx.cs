@@ -16,23 +16,36 @@ namespace OnlineBookShopProject.Views.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             Con = new Models.Functions();
-            ShowAllAuthors();
             if (!IsPostBack)
             {
                 BindCountries();
+                ShowAllAuthors();
             }
         }
 
         private void ShowAllAuthors()
         {
-            string Query = "Select * from Author";
-            gridAuthors.DataSource = Con.GetData(Query);
+            string query = "Select * from Author where 1 = 1";
+            if (txtAuthorName.Value != "")
+            {
+                query += $" and authorname like '%{txtAuthorName.Value}%'";
+            }
+            if (ddlAuthorGender.SelectedIndex != 0)
+            {
+                query += $" and authorgender = '{ddlAuthorGender.SelectedValue}'";
+            }
+            if (ddlAuthorCountry.SelectedIndex > 0)
+            {
+                query += $" and authorcountry = '{ddlAuthorCountry.SelectedValue}'";
+            }
+
+            gridAuthors.DataSource = Con.GetData(query);
             gridAuthors.DataBind();
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private async void BindCountries()
@@ -73,6 +86,28 @@ namespace OnlineBookShopProject.Views.Admin
             }
         }
 
+        protected void gridAuthors_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
 
+        }
+
+        protected void btnGridSearch_Click(object sender, EventArgs e)
+        {
+            ShowAllAuthors();
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            txtAuthorName.Value = "";
+            ddlAuthorGender.SelectedIndex = 0;
+            ddlAuthorCountry.SelectedIndex = 0;
+
+            ShowAllAuthors();
+        }
+
+        protected void gridAuthors_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+
+        }
     }
 }

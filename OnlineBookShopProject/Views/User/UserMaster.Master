@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="OnlineBookShopProject.Views.Admin.AdminMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UserMaster.master.cs" Inherits="OnlineBookShopProject.Views.User.UserMaster" %>
 
 <!DOCTYPE html>
 
@@ -11,7 +11,7 @@
     <link href="../../Content/all.css" rel="stylesheet" />
 
     <script>
-        const baseUrl = 'https://localhost:44339/Views/Admin/';
+        const baseUrl = 'https://localhost:44339/Views/User/';
         function navigateTo(url) {
             window.location.href = baseUrl + url; // Change 'page' to your target URL
         }
@@ -20,34 +20,29 @@
             window.location.href = 'https://localhost:44339/Views/Login.aspx'
         }
     </script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2 menu"> <!-- Set fixed width for expanded sidebar -->
+            <div class="col-2 menu">
                 <div style="height: 30px;">
-                    <!-- Removed toggle button since sidebar cannot be minimized -->
                 </div>
 
                 <div id="sidebar" class="show">
                     <div class="mb-3">
-                        <button class="sidebar-item sidebar-button" onclick="navigateTo('Book/BookLists.aspx')">
+                        <button class="sidebar-item sidebar-button" onclick="navigateTo('Book/BookList_User.aspx')">
                             <img src="../../../Assets/images/books-removebg-preview.png" width="40" height="40" />
                             <span class="sidebar-text">Book</span>
                         </button>
                     </div>
+
                     <div class="mb-3">
-                        <button class="sidebar-item sidebar-button" onclick="navigateTo('Authors.aspx')">
-                            <img src="../../../Assets/images/author-removebg-preview.png" width="40" height="40" />
-                            <span class="sidebar-text">Author</span>
-                        </button>
-                    </div>
-                    <div class="mb-3">
-                        <button class="sidebar-item sidebar-button" onclick="navigateTo('Categories/CategoryLists.aspx')">
-                            <img src="../../../Assets/images/category-removebg-preview.png" width="40" height="40" />
-                            <span class="sidebar-text">Category</span>
+                        <button class="sidebar-item sidebar-button" onclick="navigateTo('Book/BookList_list.aspx')">
+                            <img src="../../../Assets/images/CheckOut.png" width="40" height="40" />
+                            <span class="sidebar-text">Check Out</span>
                         </button>
                     </div>
 
@@ -70,12 +65,5 @@
             </div>
         </div>
     </div>
-
-    <!-- Footer Section -->
-<%--    <div class="container-fluid">
-        <footer class="text-center py-3" style="background-color: #f8f9fa;">
-            <p>&copy; 2024 My Application. All rights reserved.</p>
-        </footer>
-    </div>--%>
 </body>
 </html>

@@ -189,7 +189,6 @@ label {
     width: 450px; 
     border-radius: 5px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    overflow
 }
 
     .modal-content h4 {
@@ -230,6 +229,12 @@ label {
     .sidebar-collapsed .sidebar-text {
         display: none;
     }
+
+.sidebar-button {
+    border: none;
+    background: none;
+    color: white;
+}
 
 
 

@@ -42,31 +42,31 @@ namespace OnlineBookShopProject.Views.Admin
         protected global::System.Web.UI.WebControls.DropDownList ddlAuthorCountry;
 
         /// <summary>
-        /// btnUpdate control.
+        /// btnGridSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
+        protected global::System.Web.UI.WebControls.Button btnGridSearch;
 
         /// <summary>
-        /// btnRegister control.
+        /// btnClear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegister;
+        protected global::System.Web.UI.WebControls.Button btnClear;
 
         /// <summary>
-        /// btnDelete control.
+        /// btnAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDelete;
+        protected global::System.Web.UI.WebControls.Button btnAdd;
 
         /// <summary>
         /// gridAuthors control.
