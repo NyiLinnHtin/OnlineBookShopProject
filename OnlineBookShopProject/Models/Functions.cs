@@ -49,7 +49,7 @@ namespace OnlineBookShopProject.Models
 
             cmd.CommandText = Query;
             affectedRows = cmd.ExecuteNonQuery();
-
+            Console.WriteLine("Executing Query: " + Query);
             try
             {
                 affectedRows = cmd.ExecuteNonQuery();
@@ -64,6 +64,29 @@ namespace OnlineBookShopProject.Models
                 Con.Close();
             }
             return affectedRows;
+        }
+
+        public object GetScalar(string query)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(Constr))
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        return cmd.ExecuteScalar();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error executing scalar query: " + ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
     }
 }

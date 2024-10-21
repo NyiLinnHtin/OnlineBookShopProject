@@ -11,7 +11,20 @@ namespace OnlineBookShopProject.Views.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                // Check if the user is logged in (i.e., Session has a value)
+                if (Session["UserName"] != null)
+                {
+                    // Display the logged-in username in the label
+                    lblUserName.Text = Session["UserName"].ToString();
+                }
+                else
+                {
+                    // Optional: Redirect to login page if the user is not logged in
+                    //Response.Redirect("~/Views/Login.aspx");
+                }
+            }
         }
     }
 }

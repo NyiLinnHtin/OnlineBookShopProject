@@ -3,9 +3,13 @@
 }
 
 .menu {
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 200px;
     color: white;
     background-color: #30D5C0;
-    height: 100vh;
     font-size: 20px;
     display: flex;
     flex-direction: column;
@@ -16,8 +20,8 @@
         margin-top: auto; /* Pushes the logout button to the bottom */
     }
 
-label {
-    color: white;
+.main-content {
+    margin-left: 200px;
 }
 
 .clickable-block {
@@ -104,6 +108,17 @@ label {
         .searchGrid th, .searchGrid td {
             padding: 10px 12px;
         }
+}
+.lastTotalAmount {
+    max-height: 75vh;
+    overflow-y: auto;
+    border: none;
+}
+
+.lastTotalAmount th:last-child,
+.lastTotalAmount td:last-child {
+    text-align:right;
+    margin-left: 10px;
 }
 
 /* Pagination bar (gridPager) styling */
@@ -234,6 +249,24 @@ label {
     border: none;
     background: none;
     color: white;
+}
+
+.card {
+    margin-bottom: 20px; /* Adjust vertical space between cards */
+}
+
+    .card img {
+        object-fit: cover; /* Ensure the image fits well in the card */
+    }
+
+.final-total-title {
+    font-size: 1.5rem; /* Adjust as needed */
+    font-weight: bold; /* Make it bold */
+}
+
+.final-total-amount {
+    font-size: 1.5rem; /* Match this size with the title */
+    font-weight: bold; /* Ensure it’s bold as well */
 }
 
 

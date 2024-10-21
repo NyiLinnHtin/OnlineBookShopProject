@@ -18,27 +18,33 @@
                 // Reset the hidden field to avoid reopening on future postbacks
                 document.getElementById('<%= hfModalOpen.ClientID %>').value = "false";
             }
+
+            var hiddenImageData = document.getElementById('<%= hiddenImagePath.ClientID %>').value;
+            if (hiddenImageData) {
+                document.getElementById('<%= bookImage.ClientID %>').src = hiddenImageData;
+            }
         };
 
-        // Preview the selected image and store the file path in the hidden field
+        // Preview the selected image and store the base64 data in the hidden field
         function previewImage(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
                     document.getElementById('<%= bookImage.ClientID %>').src = e.target.result;
-                };
-                reader.readAsDataURL(input.files[0]);
 
-                // Store the file name (or full path if needed) in the hidden field
-                document.getElementById('<%= hiddenImagePath.ClientID %>').value = input.files[0]; // You can also store the path if you have one
-            }
-        }
+            // Store the base64 data in the hidden field
+            document.getElementById('<%= hiddenImagePath.ClientID %>').value = e.target.result; // Store the full base64 string
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
     </script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:HiddenField ID="hfModalOpen" runat="server" />
     <asp:HiddenField ID="HDAuthorID" runat="server" />
+    <asp:HiddenField ID="hiddenImagePath" runat="server" />
 
     <div class="container-fluid">
         <%--Title--%>
@@ -63,8 +69,6 @@
                 <div class="row justify-content-center">
                     <label class="col-md-2 control-label text-black align-self-center">Book Image</label>
                     <div class="col-md-4 text-center">
-                        <!-- Hidden field to store the image path -->
-                        <input type="hidden" id="hiddenImagePath" runat="server" />
 
                         <!-- File input (hidden) -->
                         <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="previewImage(this);" />
@@ -157,8 +161,8 @@
         <div class="row mt-3 justify-content-center">
             <div class="col-md-4 text-center">
                 <asp:Button ID="btnUpdate" Text="Update" runat="server" class="btn btn-warning" OnClick="btnUpdate_Click" />
-                <asp:Button ID="btnRegister" Text="Register" runat="server" class="btn btn-success" />
-                <asp:Button ID="btnDelete" Text="Delete" runat="server" class="btn btn-danger" />
+                <asp:Button ID="btnRegister" Text="Register" runat="server" class="btn btn-success" OnClick="btnRegister_Click" />
+                <asp:Button ID="btnDelete" Text="Delete" runat="server" class="btn btn-danger" OnClick="btnDelete_Click" />
                 <asp:Button ID="btnBack" Text="Back" runat="server" class="btn btn-secondary" OnClick="btnBack_Click" />
             </div>
         </div>

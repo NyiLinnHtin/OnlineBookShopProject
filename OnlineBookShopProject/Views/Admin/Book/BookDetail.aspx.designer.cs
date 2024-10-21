@@ -33,6 +33,15 @@ namespace OnlineBookShopProject.Views.Admin
         protected global::System.Web.UI.WebControls.HiddenField HDAuthorID;
 
         /// <summary>
+        /// hiddenImagePath control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hiddenImagePath;
+
+        /// <summary>
         /// lblError control.
         /// </summary>
         /// <remarks>
@@ -40,15 +49,6 @@ namespace OnlineBookShopProject.Views.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
-
-        /// <summary>
-        /// hiddenImagePath control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenImagePath;
 
         /// <summary>
         /// bookImage control.
