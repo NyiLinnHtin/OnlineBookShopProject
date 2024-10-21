@@ -20,25 +20,35 @@
                     <div class="text-center">
                         <img src="../Assets/images/book.png" width="100" height="100" />
                     </div>
+
                     <div class="mt-3">
                         <div class="row">
-                            <label class="col-md-4 control-label">User Name</label>
+                            <label class="col-md-4 control-label">Email</label>
                             <div class="col-md-8">
-                                <input type="text" placeholder="Mr.Smith" autocomplete="off" class="form-control placeholder-wave" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-3">
-                        <div class="row">
-                            <label class="col-md-4 control-label">Password</label>
-                            <div class="col-md-8">
-                                <input type="password" placeholder="Password" autocomplete="off" class="form-control placeholder-wave" />
+                                <asp:TextBox ID="txtUserName" runat="server" placeholder="test@gmail.com" CssClass="form-control"></asp:TextBox>
                             </div>
                         </div>
                     </div>
 
                     <div class="mt-3">
+                        <div class="row">
+                            <label class="col-md-4 control-label">Password</label>
+                            <div class="col-md-8">
+                                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" placeholder="Password" CssClass="form-control"></asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Error message label -->
+                    <div class="mt-3">
+                        <asp:Label ID="lblErrorMessage" runat="server" CssClass="text-danger" Visible="false"></asp:Label>
+                    </div>
+
+                    <div class="mt-3">
                         <asp:Button ID="LoginBtn" Text="Login" runat="server" class="btn my-button-login" OnClick="LoginBtn_Click" />
+                    </div>
+                    <div class="mt-3">
+                        <asp:Button ID="btnSignUp" Text="Sign Up" runat="server" Width="100%" class="btn btn-primary" OnClick="btnSignUp_Click" />
                     </div>
                 </form>
             </div>

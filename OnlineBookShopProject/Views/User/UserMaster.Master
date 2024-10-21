@@ -32,6 +32,13 @@
                 </div>
 
                 <div id="sidebar" class="show">
+                    <div class="mb-5 text-center">
+                        <button class="sidebar-item sidebar-button" <%--onclick="navigateTo('Book/BookList_User.aspx')"--%>>
+                            <asp:Label ID="lblUserName" runat="server">Unknown User</asp:Label>
+                            <%--<span class="sidebar-text">Book</span>--%>
+                        </button>
+                    </div>
+
                     <div class="mb-3">
                         <button class="sidebar-item sidebar-button" onclick="navigateTo('Book/BookList_User.aspx')">
                             <img src="../../../Assets/images/books-removebg-preview.png" width="40" height="40" />
@@ -40,7 +47,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <button class="sidebar-item sidebar-button" onclick="navigateTo('Book/BookList_list.aspx')">
+                        <button class="sidebar-item sidebar-button" onclick="navigateTo('CheckOut/ConfirmCheckOut_User.aspx')">
                             <img src="../../../Assets/images/CheckOut.png" width="40" height="40" />
                             <span class="sidebar-text">Check Out</span>
                         </button>
@@ -55,9 +62,9 @@
                 </div>
             </div>
 
-            <div class="col-10">
+            <div class="col">
                 <form id="form1" runat="server">
-                    <div>
+                    <div class="main-content">
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                         </asp:ContentPlaceHolder>
                     </div>

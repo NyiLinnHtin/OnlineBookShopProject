@@ -43,6 +43,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -139,7 +145,11 @@
     <Content Include="Views\Admin\Categories\CategoryDetail.aspx" />
     <Content Include="Views\Admin\Categories\CategoryLists.aspx" />
     <Content Include="Views\Login.aspx" />
+    <Content Include="Views\SignUp.aspx" />
+    <Content Include="Views\User\Book\BookDetail_User.aspx" />
     <Content Include="Views\User\Book\BookList_User.aspx" />
+    <Content Include="Views\User\CheckOut\CheckOut_User.aspx" />
+    <Content Include="Views\User\CheckOut\ConfirmCheckOut_User.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -199,12 +209,40 @@
     <Compile Include="Views\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\SignUp.aspx.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\SignUp.aspx.designer.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\Book\BookDetail_User.aspx.cs">
+      <DependentUpon>BookDetail_User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\User\Book\BookDetail_User.aspx.designer.cs">
+      <DependentUpon>BookDetail_User.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\User\Book\BookList_User.aspx.cs">
       <DependentUpon>BookList_User.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\User\Book\BookList_User.aspx.designer.cs">
       <DependentUpon>BookList_User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\CheckOut\CheckOut_User.aspx.cs">
+      <DependentUpon>CheckOut_User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\User\CheckOut\CheckOut_User.aspx.designer.cs">
+      <DependentUpon>CheckOut_User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\CheckOut\ConfirmCheckOut_User.aspx.cs">
+      <DependentUpon>ConfirmCheckOut_User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\User\CheckOut\ConfirmCheckOut_User.aspx.designer.cs">
+      <DependentUpon>ConfirmCheckOut_User.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\User\UserMaster.Master.cs">
       <DependentUpon>UserMaster.Master</DependentUpon>

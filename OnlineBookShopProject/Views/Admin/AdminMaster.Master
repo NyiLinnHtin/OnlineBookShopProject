@@ -39,7 +39,7 @@
                         </button>
                     </div>
                     <div class="mb-3">
-                        <button class="sidebar-item sidebar-button" onclick="navigateTo('Authors.aspx')">
+                        <button class="sidebar-item sidebar-button" onclick="navigateTo('Authors/AuthorLists.aspx')">
                             <img src="../../../Assets/images/author-removebg-preview.png" width="40" height="40" />
                             <span class="sidebar-text">Author</span>
                         </button>
@@ -60,9 +60,9 @@
                 </div>
             </div>
 
-            <div class="col-10">
+            <div class="col">
                 <form id="form1" runat="server">
-                    <div>
+                    <div class="main-content">
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                         </asp:ContentPlaceHolder>
                     </div>
