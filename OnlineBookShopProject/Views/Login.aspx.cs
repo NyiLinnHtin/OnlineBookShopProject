@@ -23,15 +23,8 @@ namespace OnlineBookShopProject.Views
             CheckLogin();
         }
 
-        private void CheckLogin()
+        protected void LoginBtn_Click(object sender, EventArgs e)
         {
-            string query = $"Select * from UserAccount where UserName = '{txtUserName.Text.Trim()}' and Password = {txtPassword.Text.Trim()}";
-            int userRole = 0;
-            DataTable dt = Con.GetData(query);
-            if (dt.Rows.Count > 0)
-            {
-                Session["UserName"] = dt.Rows[0]["UserName"].ToString();
-                Session["UserId"] = dt.Rows[0]["UserId"].ToString();
 
                 userRole = Int32.Parse(dt.Rows[0]["UserRole"].ToString());
                 lblErrorMessage.Visible = false;
@@ -51,11 +44,6 @@ namespace OnlineBookShopProject.Views
                 lblErrorMessage.Text = "Invalid username or password.";
                 lblErrorMessage.Visible = true;
             }
-        }
-
-        protected void btnSignUp_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

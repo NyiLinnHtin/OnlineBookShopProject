@@ -145,8 +145,6 @@
     <Content Include="Views\Admin\Categories\CategoryDetail.aspx" />
     <Content Include="Views\Admin\Categories\CategoryLists.aspx" />
     <Content Include="Views\Login.aspx" />
-    <Content Include="Views\SignUp.aspx" />
-    <Content Include="Views\User\Book\BookDetail_User.aspx" />
     <Content Include="Views\User\Book\BookList_User.aspx" />
     <Content Include="Views\User\CheckOut\CheckOut_User.aspx" />
     <Content Include="Views\User\CheckOut\ConfirmCheckOut_User.aspx" />
@@ -208,20 +206,6 @@
     </Compile>
     <Compile Include="Views\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SignUp.aspx.cs">
-      <DependentUpon>SignUp.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\SignUp.aspx.designer.cs">
-      <DependentUpon>SignUp.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\User\Book\BookDetail_User.aspx.cs">
-      <DependentUpon>BookDetail_User.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\User\Book\BookDetail_User.aspx.designer.cs">
-      <DependentUpon>BookDetail_User.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\User\Book\BookList_User.aspx.cs">
       <DependentUpon>BookList_User.aspx</DependentUpon>

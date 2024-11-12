@@ -25,7 +25,7 @@
                         <div class="row">
                             <label class="col-md-4 control-label">Email</label>
                             <div class="col-md-8">
-                                <asp:TextBox ID="txtUserName" runat="server" placeholder="test@gmail.com" CssClass="form-control"></asp:TextBox>
+                                <input type="text" placeholder="Mr.Smith" autocomplete="off" class="form-control placeholder-wave" />
                             </div>
                         </div>
                     </div>
