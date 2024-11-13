@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OnlineBookShopProject.Views
+namespace OnlineBookShopProject
 {
 
 

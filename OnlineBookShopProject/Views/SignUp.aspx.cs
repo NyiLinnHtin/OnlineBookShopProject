@@ -7,7 +7,7 @@ using System.Net.Mail;
 using System.Web.UI.WebControls;
 using System.Net;
 
-namespace OnlineBookShopProject.Views
+namespace OnlineBookShopProject
 {
     public partial class SignUp : System.Web.UI.Page
     {
@@ -21,7 +21,7 @@ namespace OnlineBookShopProject.Views
         protected void Code_Click(object sender, EventArgs e)
         {
             string email = txtEmail.Text.Trim();
-
+            bool err_code = false;
             if (IsValidEmail(email))
             {
                 // Generate a 6-digit code
@@ -31,12 +31,19 @@ namespace OnlineBookShopProject.Views
                 ViewState["VerificationCode"] = code;
 
                 // Send the code to the user's email
-                SendVerificationCode(email, code);
+                err_code = SendVerificationCode(email, code);
 
-                // Show password fields and signup button
-                divPassword.Visible = true;
-                divConfirmPassword.Visible = true;
-                divSignUp.Visible = true;
+                if (err_code) {
+                    lblErrorMessage.Text = "Error in Sending Message";
+                    lblErrorMessage.Visible = true;
+                }
+                else
+                {
+                    // Show password fields and signup button
+                    divPassword.Visible = true;
+                    divConfirmPassword.Visible = true;
+                    divSignUp.Visible = true;
+                }
             }
             else
             {
@@ -64,7 +71,7 @@ namespace OnlineBookShopProject.Views
             return random.Next(100000, 999999).ToString();
         }
 
-        public void SendVerificationCode(string email, string code)
+        public bool SendVerificationCode(string email, string code)
         {
             try
             {
@@ -99,13 +106,14 @@ namespace OnlineBookShopProject.Views
             catch (SmtpException smtpEx)
             {
                 Console.WriteLine("SMTP error: " + smtpEx.Message);
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("General error: " + ex.Message);
+                return true;
             }
+            return false;
         }
-
-
     }
 }
